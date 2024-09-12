@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Header from './Header';
 import NewsCard from './NewsCard';
+import Shimmer from './Shimmer';
 
 const Results = () => {
 
@@ -21,7 +22,7 @@ const Results = () => {
     fetchNews();
   },[fetchData]);
 
-  return (
+  return fetchData.length === 0 ? <Shimmer/> : (
     <div>
       <Header/>
       <h1 className='text-3xl font-semibold ml-2 mb-4 text-center'>News about {name}.</h1>

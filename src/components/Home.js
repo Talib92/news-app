@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from './Header';
 import NewsCard from './NewsCard';
+import Shimmer from "./Shimmer"
 
 const Home = () => {
 
@@ -17,7 +18,7 @@ const Home = () => {
     fetchedNews();
   },[]);
 
-  return (
+  return newsData.length === 0 ? <Shimmer/> : (
     <>
     <Header/>
     <div className='mt-2'>

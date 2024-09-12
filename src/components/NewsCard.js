@@ -11,7 +11,7 @@ const NewsCard = ({news}) => {
     // const {name} = news?.source
   return (
     <div className=' flex ml-16'>
-      <div className='rounded-xl px-2 py-2 bg-white shadow-sm hover:shadow-2xl'>
+      <div className='rounded-xl px-2 py-2 bg-white shadow-lg hover:shadow-2xl'>
         <div>
           <a href={url} target='_blank'> 
           <img className='w-[18rem] rounded-md' src={urlToImage || imageUrl} alt="image" />

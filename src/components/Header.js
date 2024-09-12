@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 const Header = () => {
 
   return (
-    <div className='flex shadow-sm w-screen  h-16'>
+    <div className='flex shadow-sm  h-16'>
         <div>
-           <Link to={"/"}> <img className='w-24 h-16 cursor-pointer -mt-2' src="https://c8.alamy.com/comp/M2HDGA/world-news-flat-vector-icon-news-symbol-logo-illustration-M2HDGA.jpg" 
+           <Link to={"/"}> <img className='w-24 h-16 cursor-pointer -mt-2 ml-2' src="https://c8.alamy.com/comp/M2HDGA/world-news-flat-vector-icon-news-symbol-logo-illustration-M2HDGA.jpg" 
             alt="logo" />
             </Link>
         </div>
