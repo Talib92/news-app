@@ -8,13 +8,13 @@ const Header = ({theme, setTheme}) => {
   return (
     <div className={`flex shadow-sm h-16 w-full fixed ${theme === "Dark" ? "bg-neutral-800 text-white" : "bg-white text-black"}`}>
         <div>
-           <Link to={"/"}> <img className='w-24 h-16 cursor-pointer -mt-1 ml-2' src="https://c8.alamy.com/comp/M2HDGA/world-news-flat-vector-icon-news-symbol-logo-illustration-M2HDGA.jpg" 
+           <Link to={"/"}> <img className='w-24 h-16 cursor-pointer -mt-1 ml-2 fixed' src="https://c8.alamy.com/comp/M2HDGA/world-news-flat-vector-icon-news-symbol-logo-illustration-M2HDGA.jpg" 
             alt="logo" />
             </Link>
         </div>
         <div>
 
-            <ul className='flex cursor-pointer mt-4 font-semibold ml-8'>
+            <ul className='flex cursor-pointer mt-4 font-semibold ml-28'>
                <Link to={"/"}> 
                  <li className='mx-4 hover:underline'>Home</li>
               </Link>
@@ -55,7 +55,8 @@ const Header = ({theme, setTheme}) => {
 
         </div>
         <div>
-         <button className={`px-4 py-1 mt-3 rounded-lg font-semibold ${theme === "Light" ? "bg-gray-100 text-black hover:bg-gray-300" : "bg-black text-white hover:bg-neutral-700"}` }
+         <button className={`px-4 py-1 mt-3 rounded-lg font-semibold 
+         ${theme === "Light" ? "bg-gray-100 text-black hover:bg-gray-300" : "bg-black text-white hover:bg-neutral-700"}` }
          onClick={()=>{theme === "Light" ?  setTheme("Dark")  : setTheme("Light")}}>
             {theme}
          </button>

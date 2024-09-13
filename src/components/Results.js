@@ -13,7 +13,7 @@ const Results = ({theme, setTheme}) => {
   
 
   const fetchNews = async () =>{
-    const data = await fetch(`https://newsapi.org/v2/everything?q=${name}&from=2024-09-11&apiKey=dd6207cc1b334934a44762a84ba17525`);
+    const data = await fetch(`https://newsapi.org/v2/everything?q=${name}&from=2024-09-12&apiKey=dd6207cc1b334934a44762a84ba17525`);
     const jsonData = await data.json();
     //  console.log(jsonData.articles)
     setFetchedData(jsonData.articles);
@@ -40,7 +40,7 @@ const Results = ({theme, setTheme}) => {
       <h1 className='text-3xl font-semibold ml-2 mb-4 text-center'>News about {name}.</h1>
       {/* <NewsCard news={fetchData[0]}/> */}
 
-      <div className='flex flex-wrap gap-10'>
+      <div className='flex flex-wrap gap-10 w-full'>
 
         {fetchData.slice(0,count).map((news,index) =>(
           <NewsCard key={index} news = {news} theme={theme}/>

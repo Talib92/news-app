@@ -9,8 +9,16 @@ const Home = ({theme, setTheme}) => {
   const [newsData, setNewsdata] = useState([]);
   const [count, setCount] = useState(21);
 
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  const getFormattedDate = (date) => {
+    return date.toISOString().split('T')[0];
+  };
+
   const fetchedNews = async () =>{
-    const data = await fetch("https://newsapi.org/v2/everything?q=india+us&from=2024-09-10&apiKey=dd6207cc1b334934a44762a84ba17525");
+    const data = await fetch(`https://newsapi.org/v2/everything?q=india+us&${getFormattedDate(yesterday)}&to=${getFormattedDate(today)}&apiKey=dd6207cc1b334934a44762a84ba17525`);
     const jsonData = await data.json();
     // console.log(jsonData.articles)
     setNewsdata(jsonData.articles);
@@ -39,7 +47,7 @@ const Home = ({theme, setTheme}) => {
         <h1 className={`text-3xl font-semibold ml-2 mb-4 text-center mt-16 ${theme === "Light" ? "text-black" : "text-white"}`}>News around the world 🌎</h1>
         {/* <NewsCard news = {newsData[0]}/> */}
 
-        <div className='flex flex-wrap gap-10'>
+        <div className='flex flex-wrap gap-10 w-full'>
 
         {newsData.slice(0,count).map((news,index) =>(
           <NewsCard key={index} news = {news} theme={theme}/>
