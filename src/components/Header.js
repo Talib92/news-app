@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({theme, setTheme}) => {
 
-    const [theme, setTheme] = useState("Light")
+   //  const [theme, setTheme] = useState("Light")
 
   return (
     <div className={`flex shadow-sm h-16 w-full ${theme === "Dark" ? "bg-neutral-800 text-white" : "bg-white text-black"}`}>
@@ -55,7 +55,7 @@ const Header = () => {
 
         </div>
         <div>
-         <button className={`px-4 py-1 mt-3 rounded-lg font-semibold ${theme === "Light" ? "bg-black text-white" : "bg-white text-black"}` }
+         <button className={`px-4 py-1 mt-3 rounded-lg font-semibold ${theme === "Light" ? "bg-gray-200 text-black" : "bg-black text-white"}` }
          onClick={()=>{theme === "Light" ?  setTheme("Dark")  : setTheme("Light")}}>
             {theme}
          </button>

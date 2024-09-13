@@ -3,7 +3,7 @@ import Header from './Header';
 import NewsCard from './NewsCard';
 import Shimmer from "./Shimmer"
 
-const Home = () => {
+const Home = ({theme, setTheme}) => {
 
   const [newsData, setNewsdata] = useState([]);
 
@@ -20,15 +20,17 @@ const Home = () => {
 
   return newsData.length === 0 ? <Shimmer/> : (
     <>
-    <Header/>
-    <div className='mt-2'>
-        <h1 className='text-3xl font-semibold ml-2 mb-4 text-center'>News around the world 🌎</h1>
+    <Header theme={theme} setTheme={setTheme}/>
+    <div className={theme === "Light" ? "bg-white text-black" : "bg-neutral-950 text-white"}>
+    <div className='pt-4'>
+        <h1 className={`text-3xl font-semibold ml-2 mb-4 text-center ${theme === "Light" ? "text-black" : "text-white"}`}>News around the world 🌎</h1>
         {/* <NewsCard news = {newsData[0]}/> */}
         <div className='flex flex-wrap gap-10'>
         {newsData.map((news,index) =>(
-          <NewsCard key={index} news = {news}/>
+          <NewsCard key={index} news = {news} theme={theme}/>
         ))}
         </div>
+    </div>
     </div>
     </>
   )
