@@ -6,7 +6,7 @@ const Header = ({theme, setTheme}) => {
    //  const [theme, setTheme] = useState("Light")
 
   return (
-    <div className={`flex shadow-sm h-16 w-full ${theme === "Dark" ? "bg-neutral-800 text-white" : "bg-white text-black"}`}>
+    <div className={`flex shadow-sm h-16 w-full fixed ${theme === "Dark" ? "bg-neutral-800 text-white" : "bg-white text-black"}`}>
         <div>
            <Link to={"/"}> <img className='w-24 h-16 cursor-pointer -mt-1 ml-2' src="https://c8.alamy.com/comp/M2HDGA/world-news-flat-vector-icon-news-symbol-logo-illustration-M2HDGA.jpg" 
             alt="logo" />

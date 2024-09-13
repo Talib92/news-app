@@ -24,7 +24,7 @@ const Results = ({theme, setTheme}) => {
   return fetchData.length === 0 ? <Shimmer/> : (
     <div>
       <Header theme={theme} setTheme={setTheme}/>
-      <div className={theme === "Light" ? "bg-white text-black" : "bg-neutral-900 text-white"}>
+      <div className={`${theme === "Light" ? "bg-white text-black" : "bg-neutral-900 text-white"} pt-20`}>
       <h1 className='text-3xl font-semibold ml-2 mb-4 text-center'>News about {name}.</h1>
       {/* <NewsCard news={fetchData[0]}/> */}
       <div className='flex flex-wrap gap-10'>

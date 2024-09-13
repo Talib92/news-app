@@ -11,7 +11,7 @@ const NewsCard = ({news, theme}) => {
   return (
 
     <a href={url} target='_blank' rel="noopener noreferrer"> 
-    <div className={`flex ml-16 rounded-xl shadow-lg h-auto ${theme === "Light" ? "bg-white text-black" : "bg-neutral-800"}`}>
+    <div className={`flex ml-16 rounded-xl shadow-lg h-auto ${theme === "Light" ? "bg-gray-50 text-black" : "bg-neutral-800"}`}>
       <div className={`px-2 py-2 shadow-lg hover:shadow-2xl`}>
         <div>
           <img className='w-[18rem] rounded-md h-48' src={ imageUrl} alt="image" />

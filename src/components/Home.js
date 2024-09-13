@@ -23,7 +23,7 @@ const Home = ({theme, setTheme}) => {
     <Header theme={theme} setTheme={setTheme}/>
     <div className={theme === "Light" ? "bg-white text-black" : "bg-neutral-950 text-white"}>
     <div className='pt-4'>
-        <h1 className={`text-3xl font-semibold ml-2 mb-4 text-center ${theme === "Light" ? "text-black" : "text-white"}`}>News around the world 🌎</h1>
+        <h1 className={`text-3xl font-semibold ml-2 mb-4 text-center mt-16 ${theme === "Light" ? "text-black" : "text-white"}`}>News around the world 🌎</h1>
         {/* <NewsCard news = {newsData[0]}/> */}
         <div className='flex flex-wrap gap-10'>
         {newsData.map((news,index) =>(
