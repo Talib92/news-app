@@ -9,7 +9,7 @@ const Home = ({theme, setTheme}) => {
   const [newsData, setNewsdata] = useState([]);
   const [count, setCount] = useState(21);
 
-  const today = new Date();
+    const today = new Date();
   const yesterday = new Date(today);
   yesterday.setDate(yesterday.getDate() - 1);
 
@@ -43,11 +43,11 @@ const Home = ({theme, setTheme}) => {
 
     <div className={theme === "Light" ? "bg-white text-black" : "bg-neutral-950 text-white"}>
 
-    <div className='pt-4'>
+    <div className='md:pt-4 pt-16'>
         <h1 className={`text-3xl font-semibold ml-2 mb-4 text-center mt-16 ${theme === "Light" ? "text-black" : "text-white"}`}>News around the world 🌎</h1>
         {/* <NewsCard news = {newsData[0]}/> */}
 
-        <div className='flex flex-wrap gap-10 w-full'>
+        <div className='flex flex-wrap md:gap-2 w-full md:-ml-6 ml-4 gap-4'>
 
         {newsData.slice(0,count).map((news,index) =>(
           <NewsCard key={index} news = {news} theme={theme}/>

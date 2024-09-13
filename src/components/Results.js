@@ -36,11 +36,11 @@ const Results = ({theme, setTheme}) => {
     <div>
       <Header theme={theme} setTheme={setTheme}/>
 
-      <div className={`${theme === "Light" ? "bg-white text-black" : "bg-neutral-900 text-white"} pt-20`}>
+      <div className={`${theme === "Light" ? "bg-white text-black" : "bg-neutral-900 text-white"} md:pt-20 pt-32`}>
       <h1 className='text-3xl font-semibold ml-2 mb-4 text-center'>News about {name}.</h1>
       {/* <NewsCard news={fetchData[0]}/> */}
 
-      <div className='flex flex-wrap gap-10 w-full'>
+      <div className='flex flex-wrap md:gap-2 w-full md:-ml-6 ml-4 gap-4'>
 
         {fetchData.slice(0,count).map((news,index) =>(
           <NewsCard key={index} news = {news} theme={theme}/>
