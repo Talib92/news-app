@@ -3,11 +3,13 @@ import { useParams } from 'react-router-dom'
 import Header from './Header';
 import NewsCard from './NewsCard';
 import Shimmer from './Shimmer';
+import LoadMore from './LoadMore';
 
 const Results = ({theme, setTheme}) => {
 
   const {name} = useParams(); 
   const [fetchData, setFetchedData] = useState([]);
+  const [count, setCount] = useState(21);
   
 
   const fetchNews = async () =>{
@@ -19,19 +21,33 @@ const Results = ({theme, setTheme}) => {
 
   useEffect(() =>{
     fetchNews();
-  },[fetchData]);
+  },[name]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top
+  }, []);
+
+  const loadMore = () => {
+    setCount((prevCount) => prevCount + 21);
+  };
 
   return fetchData.length === 0 ? <Shimmer/> : (
+
     <div>
       <Header theme={theme} setTheme={setTheme}/>
+
       <div className={`${theme === "Light" ? "bg-white text-black" : "bg-neutral-900 text-white"} pt-20`}>
       <h1 className='text-3xl font-semibold ml-2 mb-4 text-center'>News about {name}.</h1>
       {/* <NewsCard news={fetchData[0]}/> */}
+
       <div className='flex flex-wrap gap-10'>
-        {fetchData.map((news,index) =>(
+
+        {fetchData.slice(0,count).map((news,index) =>(
           <NewsCard key={index} news = {news} theme={theme}/>
         ))}
-        </div>
+
+      </div>
+      <LoadMore loadMore={loadMore} count={count} totalLength={fetchData.length} theme={theme} />
     </div>
     </div>
   )

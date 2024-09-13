@@ -55,7 +55,7 @@ const Header = ({theme, setTheme}) => {
 
         </div>
         <div>
-         <button className={`px-4 py-1 mt-3 rounded-lg font-semibold ${theme === "Light" ? "bg-gray-200 text-black" : "bg-black text-white"}` }
+         <button className={`px-4 py-1 mt-3 rounded-lg font-semibold ${theme === "Light" ? "bg-gray-100 text-black hover:bg-gray-300" : "bg-black text-white hover:bg-neutral-700"}` }
          onClick={()=>{theme === "Light" ?  setTheme("Dark")  : setTheme("Light")}}>
             {theme}
          </button>
