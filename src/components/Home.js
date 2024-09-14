@@ -9,7 +9,7 @@ const Home = ({theme, setTheme}) => {
   const [newsData, setNewsdata] = useState([]);
   const [count, setCount] = useState(21);
 
-    const today = new Date();
+  const today = new Date();
   const yesterday = new Date(today);
   yesterday.setDate(yesterday.getDate() - 1);
 
@@ -18,7 +18,7 @@ const Home = ({theme, setTheme}) => {
   };
 
   const fetchedNews = async () =>{
-    const data = await fetch(`https://newsapi.org/v2/everything?q=india+us&${getFormattedDate(yesterday)}&to=${getFormattedDate(today)}&apiKey=dd6207cc1b334934a44762a84ba17525`);
+    const data = await fetch(`https://newsapi.org/v2/everything?q=india+us&from=${getFormattedDate(yesterday)}&to=${getFormattedDate(today)}&apiKey=dd6207cc1b334934a44762a84ba17525`);
     const jsonData = await data.json();
     // console.log(jsonData.articles)
     setNewsdata(jsonData.articles);
@@ -39,7 +39,7 @@ const Home = ({theme, setTheme}) => {
 
   return newsData.length === 0 ? <Shimmer/> : (
     <>
-    <Header theme={theme} setTheme={setTheme}/>
+    {/* <Header theme={theme} setTheme={setTheme}/> */}
 
     <div className={theme === "Light" ? "bg-white text-black" : "bg-neutral-950 text-white"}>
 
@@ -47,7 +47,7 @@ const Home = ({theme, setTheme}) => {
         <h1 className={`text-3xl font-semibold ml-2 mb-4 text-center mt-16 ${theme === "Light" ? "text-black" : "text-white"}`}>News around the world 🌎</h1>
         {/* <NewsCard news = {newsData[0]}/> */}
 
-        <div className='flex flex-wrap md:gap-2 w-full md:-ml-6 ml-4 gap-4'>
+        <div className='flex flex-wrap lg:gap-12 lg:ml-0 md:gap-2 w-full md:-ml-6 ml-4 gap-4'>
 
         {newsData.slice(0,count).map((news,index) =>(
           <NewsCard key={index} news = {news} theme={theme}/>
