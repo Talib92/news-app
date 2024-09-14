@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Header from './Header';
 import NewsCard from './NewsCard';
 import Shimmer from "./Shimmer"
 import LoadMore from './LoadMore';
 
-const Home = ({theme, setTheme}) => {
+const Home = ({theme}) => {
 
   const [newsData, setNewsdata] = useState([]);
   const [count, setCount] = useState(21);

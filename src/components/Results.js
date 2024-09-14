@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Header from './Header';
 import NewsCard from './NewsCard';
 import Shimmer from './Shimmer';
 import LoadMore from './LoadMore';
 
-const Results = ({theme, setTheme}) => {
+const Results = ({theme}) => {
 
   const {name} = useParams(); 
   const [fetchData, setFetchedData] = useState([]);
