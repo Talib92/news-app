@@ -3,7 +3,7 @@ import articlesSlice from "./articlesSlice";
 
 const store = configureStore({
     reducer:{
-        articles:articlesSlice.reducer,
+        article:articlesSlice,
     }
 })
 

@@ -3,11 +3,15 @@ import { useParams } from 'react-router-dom'
 import NewsCard from './NewsCard';
 import Shimmer from './Shimmer';
 import LoadMore from './LoadMore';
+import {useDispatch, useSelector} from "react-redux"
+import {setArticles} from "../utils/articlesSlice"
 
 const Results = ({theme}) => {
 
   const {name} = useParams(); 
-  const [fetchData, setFetchedData] = useState([]);
+  const dispatch = useDispatch();
+  const articles = useSelector((state) => state.article.articles)
+  
   const [count, setCount] = useState(21);
 
   const today = new Date();
@@ -23,7 +27,7 @@ const Results = ({theme}) => {
     const data = await fetch(`https://newsapi.org/v2/everything?q=${name}&from=${getFormattedDate(yesterday)}&to=${getFormattedDate(today)}&apiKey=dd6207cc1b334934a44762a84ba17525`);
     const jsonData = await data.json();
     //  console.log(jsonData.articles)
-    setFetchedData(jsonData.articles);
+    dispatch(setArticles(jsonData.articles || []))
   }
 
   useEffect(() =>{
@@ -38,7 +42,7 @@ const Results = ({theme}) => {
     setCount((prevCount) => prevCount + 21);
   };
 
-  return fetchData.length === 0 ? <Shimmer/> : (
+  return articles.length === 0 ? <Shimmer/> : (
 
     <div>
       {/* <Header theme={theme} setTheme={setTheme}/> */}
@@ -49,12 +53,12 @@ const Results = ({theme}) => {
 
       <div className='flex flex-wrap lg:gap-12 lg:ml-0 md:gap-2 w-full md:-ml-6 ml-4 gap-4'>
 
-        {fetchData.slice(0,count).map((news,index) =>(
+        {articles.slice(0,count).map((news,index) =>(
           <NewsCard key={index} news = {news} theme={theme}/>
         ))}
 
       </div>
-      <LoadMore loadMore={loadMore} count={count} totalLength={fetchData.length} theme={theme} />
+      <LoadMore loadMore={loadMore} count={count} totalLength={articles.length} theme={theme} />
     </div>
     </div>
   )
