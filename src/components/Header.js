@@ -5,7 +5,6 @@ import { toggleTheme } from '../utils/themeSlice';
 
 const Header = () => {
 
-   //  const [theme, setTheme] = useState("Light")
    const dispatch = useDispatch();
    const theme = useSelector((state)=> state.theme.theme)
 

@@ -6,8 +6,7 @@ import Header from './components/Header';
 import {useSelector} from "react-redux"
 
 function App() {
-
-  // const [theme, setTheme] = useState("Light");
+  
   const theme = useSelector((state)=> state.theme.theme)
 
   const router = createBrowserRouter([

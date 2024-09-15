@@ -3,7 +3,6 @@ import React from 'react';
 const LoadMore = ({ loadMore, count, totalLength, theme }) => {
   return (
     <>
-      {/* Check if there are more articles to load */}
       {count < totalLength && (
         <div className='flex justify-center mt-8'>
           <button

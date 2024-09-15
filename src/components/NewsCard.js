@@ -3,7 +3,6 @@ import React from 'react'
 const NewsCard = ({news, theme}) => {
 
   if(!news) return;
-    // console.log(news)
     const { description, title, url, urlToImage} = news
 
     const imageUrl = urlToImage || 'https://img.freepik.com/free-photo/smooth-gray-background-with-high-quality_53876-124606.jpg';
