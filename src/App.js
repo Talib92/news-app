@@ -1,9 +1,12 @@
 import './App.css';
 import Home from './components/Home';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Results from './components/Results';
 import Header from './components/Header';
 import {useSelector} from "react-redux"
+import { lazy, Suspense } from 'react';
+import Shimmer from './components/Shimmer';
+
+const Results = lazy(()=> import("./components/Results"))
 
 function App() {
   
@@ -25,7 +28,7 @@ function App() {
         },
         {
           path: "/results/:name",
-          element: <Results theme={theme} /> // outlet == results
+          element: <Suspense fallback = {<Shimmer/>}> <Results theme={theme} /> </Suspense> // outlet == results
         }
       ]
     },
