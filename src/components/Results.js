@@ -4,13 +4,14 @@ import NewsCard from './NewsCard';
 import Shimmer from './Shimmer';
 import LoadMore from './LoadMore';
 import {useDispatch, useSelector} from "react-redux"
-import {setArticles} from "../utils/articlesSlice"
+import {setArticles} from "../utils/articlesSlice";
 
-const Results = ({theme}) => {
+const Results = () => {
 
   const {name} = useParams(); 
   const dispatch = useDispatch();
-  const articles = useSelector((state) => state.article.articles)
+  const articles = useSelector((state) => state.article.articles);
+  const theme = useSelector((state)=> state.theme.theme);
   
   const [count, setCount] = useState(21);
 

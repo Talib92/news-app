@@ -1,9 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {useDispatch, useSelector} from "react-redux"
+import { toggleTheme } from '../utils/themeSlice';
 
-const Header = ({theme, setTheme}) => {
+const Header = () => {
 
    //  const [theme, setTheme] = useState("Light")
+   const dispatch = useDispatch();
+   const theme = useSelector((state)=> state.theme.theme)
 
   return (
     <div className={`flex flex-row shadow-sm md:h-16 h-[120px] w-full fixed  ${theme === "Dark" ? "bg-neutral-800 text-white" : "bg-white text-black"}`}>
@@ -57,7 +61,7 @@ const Header = ({theme, setTheme}) => {
         <div>
          <button className={`px-4 py-1 md:mt-5 mt-10 mr-4 rounded-lg font-semibold md:mr-4 lg:mt-4 lg:ml-2
          ${theme === "Light" ? "bg-gray-100 text-black hover:bg-gray-300" : "bg-black text-white hover:bg-neutral-700"}` }
-         onClick={()=>{theme === "Light" ?  setTheme("Dark")  : setTheme("Light")}}>
+         onClick={()=> dispatch(toggleTheme())}>
             {theme}
          </button>
         </div>

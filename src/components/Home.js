@@ -3,13 +3,15 @@ import NewsCard from './NewsCard';
 import Shimmer from "./Shimmer"
 import LoadMore from './LoadMore';
 import {useDispatch, useSelector} from "react-redux"
-import {setArticles} from "../utils/articlesSlice"
+import {setArticles} from "../utils/articlesSlice";
 
-const Home = ({theme}) => {
+const Home = () => {
 
   // const [newsData, setNewsdata] = useState([]);
   const dispatch = useDispatch();
   const articles = useSelector((state) => state.article.articles);
+  const theme = useSelector((state)=> state.theme.theme);
+
   const [count, setCount] = useState(21);
 
   const today = new Date();
@@ -39,7 +41,6 @@ const Home = ({theme}) => {
   const loadMore = () => {
     setCount((prevCount) => prevCount + 21);
   };
-
 
   return articles.length === 0 ? <Shimmer/> : (
     <>
